@@ -19,6 +19,7 @@ public class ProductDAO {
 
 	//データベースのユーザー名
 	private static String USER = "root";
+	
 
 	//データベースのパスワード
 	private static String PASSWD = "root123";
@@ -150,10 +151,14 @@ public class ProductDAO {
 			con = getConnection();
 			smt = con.createStatement();
 
-			String sql = "INSERT INTO productinfo VALUES(" + product.getProduct_id() + "," + product.getUser_id() + ",'"
-					+ product.getName() + "'," +
-					product.price() + "," + product.getQuantity() + ",'" + product.getDescription() + "',"
-					+ product.getSell_date();
+			String sql = "INSERT INTO productinfo VALUES(" 
+					+ product.getProduct_id() + "," 
+					+ product.getUser_id() + ",'"
+					+ product.getName() + "',"
+					+ product.price() + "," 
+					+ product.getQuantity() + ",'" 
+					+ product.getDescription() + "','"
+					+ product.getSell_date() + "')";
 
 			int rowsCount = smt.executeUpdate(sql);
 
